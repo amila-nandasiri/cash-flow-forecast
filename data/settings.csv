@@ -1,0 +1,10 @@
+setting,value,notes
+company,Maldives seaplane operator (fictional),Shown in the report header
+currency,USD,Three-letter currency code
+start_date,2026-10-05,Monday of week 1
+opening_cash,4500000,Cash at the start of week 1
+minimum_cash,2000000,Operating cash buffer. The facility is drawn to keep cash above this
+rcf_limit,6000000,Revolving credit facility limit
+rcf_drawn,1000000,Amount drawn at the start of week 1
+rcf_rate_pct,9.5,Annual interest rate on drawn balance
+covenant_min_liquidity,4000000,Lender covenant: cash plus undrawn facility must stay above this

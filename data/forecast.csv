@@ -1,0 +1,13 @@
+line_item,type,category,week_1,week_2,week_3,week_4,week_5,week_6,week_7,week_8,week_9,week_10,week_11,week_12,week_13
+"Collections from opening receivables",receipt,Collections – existing receivables,1450000,1300000,1150000,950000,750000,550000,400000,300000,220000,150000,100000,80000,50000
+"Collections from new sales",receipt,Collections – new sales,0,50000,150000,350000,600000,850000,1000000,1100000,1150000,1200000,1250000,1350000,1550000
+"Insurance claim settlement",receipt,Other receipts,0,0,0,0,0,0,0,0,350000,0,0,0,0
+"Payroll and staff costs",payment,Payroll,0,0,1850000,0,0,0,0,1850000,0,0,0,1850000,0
+"Jet fuel",payment,Fuel,270000,270000,270000,270000,290000,290000,290000,290000,340000,340000,420000,420000,420000
+"Aircraft lease rentals",payment,Leases & rent,0,0,0,550000,0,0,0,0,550000,0,0,0,550000
+"Maintenance and spares",payment,Maintenance,110000,110000,110000,110000,110000,960000,110000,110000,110000,110000,110000,110000,110000
+"Ground handling, catering and other suppliers",payment,Suppliers & operating costs,260000,260000,260000,260000,270000,270000,270000,270000,310000,310000,310000,310000,310000
+"GST and TGST (MIRA)",payment,Taxes,0,0,0,400000,0,0,0,330000,0,0,0,0,360000
+"Term loan instalment",payment,Debt service,0,0,0,0,0,0,0,0,0,0,800000,0,0
+"Engine overhaul programme",payment,Capex,0,0,0,0,0,0,600000,0,0,0,0,400000,0
+"Annual insurance premium",payment,Other payments,0,300000,0,0,0,0,0,0,0,0,0,0,0
