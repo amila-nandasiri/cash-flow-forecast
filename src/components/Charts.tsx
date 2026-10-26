@@ -70,8 +70,15 @@ function ScenarioLines({ value, refValue, refLabel }: { value: (w: WeekResult) =
     worst: value(results.worst.weeks[i])
   }));
   const all = data.flatMap((d) => [d.best, d.base, d.worst, refValue]);
-  const lo = Math.min(0, ...all);
-  const hi = Math.max(...all);
+  // Round the axis to a "nice" step (1, 2, 2.5 or 5 × a power of ten)
+  const rawLo = Math.min(0, ...all);
+  const rawHi = Math.max(...all);
+  const rough = (rawHi - rawLo) / 4 || 1;
+  const pow = 10 ** Math.floor(Math.log10(rough));
+  const step = [1, 2, 2.5, 5, 10].map((m) => m * pow).find((x) => x >= rough)!;
+  const lo = Math.floor(rawLo / step) * step;
+  const hi = Math.ceil((rawHi * 1.02) / step) * step;
+  const ticks = Array.from({ length: Math.round((hi - lo) / step) + 1 }, (_, i) => lo + i * step);
   // Draw the selected scenario last so it sits on top
   const order = [...SCENARIOS.filter((k) => k !== selected), selected];
   return (
@@ -81,7 +88,7 @@ function ScenarioLines({ value, refValue, refLabel }: { value: (w: WeekResult) =
         <LineChart data={data} margin={{ top: 8, right: 64, left: 0, bottom: 0 }}>
           <CartesianGrid stroke={C.grid} vertical={false} />
           <XAxis dataKey="label" {...axisProps} interval="preserveStartEnd" minTickGap={20} />
-          <YAxis {...axisProps} domain={[lo, hi * 1.05]} tickFormatter={moneyShort} width={60} />
+          <YAxis {...axisProps} domain={[lo, hi]} ticks={ticks} tickFormatter={moneyShort} width={60} />
           <Tooltip cursor={{ stroke: C.axis, strokeDasharray: "3 3" }} content={<ScenarioTooltip refLabel={refLabel} refValue={refValue} />} />
           <ReferenceLine y={refValue} stroke={C.reference} strokeDasharray="5 4" label={{ value: refLabel, position: "insideBottomLeft", fill: C.axis, fontSize: 11 }} />
           {lo < 0 && <ReferenceLine y={0} stroke="#a1a1aa" />}
